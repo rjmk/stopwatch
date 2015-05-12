@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   <title>Stopwatchiness</title>
-  <script src="/Users/rafe/webdev/jquery.min.js"></script>
-  <link rel="stylesheet" href="/Users/rafe/webdev/qunit-1.18.0.css">
+  <script src="jquery.min.js"></script>
+  <link rel="stylesheet" href="straight-up-ballin.css">
+  <link rel="stylesheet" href="qunit-1.18.0.css">
 </head>
 <body>
 	<div id ='counter'>00:00:00</div>
-	<input type='button' id='start' value='Start!' onClick="T.startTimer()">
-	<input type='button' id='reset' value='Reset!' onClick="T.reset()">
-	<input type='button' id='pause' value='Pause!' onClick="T.pauseTimer()">
-	<input type='button' id='continue' value='Continue!' onClick="startTimer(window.start)">
+	<div class='buttons'>
+		<button id='start' onClick="T.startTimer()">Start!</button>
+		<button id='pause' onClick="T.pauseTimer()">Pause!</button>
+		<button id='reset' onClick="T.reset()">Reset!</button>
+		<button id='continue' onClick="T.continueTimer()">Continue!</button>
+	</div>
 	<div id="qunit"></div>
 	<div id="qunit-fixture"></div>
-	<script src="/Users/rafe/webdev/qunit-1.18.0.js"></script>
+	<script src="qunit-1.18.0.js"></script>
     <script src="stop.js"></script>
 	<script src="tests.js"></script>
 </body>

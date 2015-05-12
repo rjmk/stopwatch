@@ -1,0 +1,19 @@
+#counter {
+	font-family: 'Brush Script MT', fantasy;
+	font-size: 10em;
+}
+
+.buttons {
+	width: 30em;
+	height: 100px;
+}
+
+#start, #continue, #pause {
+	float: left;
+	margin: auto;
+}
+
+#reset {
+	float: right;
+	margin: auto;
+}
