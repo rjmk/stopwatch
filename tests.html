@@ -8,7 +8,11 @@
 </head>
 <body>
 	<div id ='counter'>00:00:00</div>
+	<div id ='counter2'>00:00:00</div>
 	<input type='button' id='start' value='Start!' onClick="startTimer()">
+	<input type='button' id='reset' value='Reset!' onClick="reset()">
+	<input type='button' id='pause' value='Pause!' onClick="pauseTimer()">
+	<input type='button' id='continue' value='Continue!' onClick="startTimer(window.start)">
 	<div id="qunit"></div>
 	<div id="qunit-fixture"></div>
 	<script src="http://code.jquery.com/qunit/qunit-1.18.0.js"></script>
