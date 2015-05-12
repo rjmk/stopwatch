@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Stopwatchiness</title>
+  <script src="/Users/rafe/webdev/jquery.min.js"></script>
+  <link rel="stylesheet" href="/Users/rafe/webdev/qunit-1.18.0.css">
+</head>
+<body>
+	<div id ='counter'>00:00:00</div>
+	<input type='button' id='start' value='Start!' onClick="T.startTimer()">
+	<input type='button' id='reset' value='Reset!' onClick="T.reset()">
+	<input type='button' id='pause' value='Pause!' onClick="T.pauseTimer()">
+	<input type='button' id='continue' value='Continue!' onClick="startTimer(window.start)">
+	<div id="qunit"></div>
+	<div id="qunit-fixture"></div>
+	<script src="/Users/rafe/webdev/qunit-1.18.0.js"></script>
+    <script src="stop.js"></script>
+	<script src="tests.js"></script>
+</body>
+</html
