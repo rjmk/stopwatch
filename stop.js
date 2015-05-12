@@ -61,5 +61,5 @@ function reset() {
 }
 
 function pauseTimer() {
-	clearInterval(renderEvery10);
+	clearInterval(window.renderEvery10);
 }
