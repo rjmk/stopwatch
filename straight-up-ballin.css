@@ -4,7 +4,7 @@
 }
 
 .buttons {
-	width: 30em;
+	width: 32em;
 	height: 100px;
 }
 
@@ -16,4 +16,22 @@
 #reset {
 	float: right;
 	margin: auto;
+}
+
+.buttons button {
+	padding: 1em, 0.3em;
+	font-size: 3em;
+	border-radius: 1.5em;
+}
+
+#start, #continue {
+	background-color: #1e2;
+}
+
+#pause {
+	background-color: #ee0;
+}
+
+#reset {
+	background-color: #0ef;
 }
