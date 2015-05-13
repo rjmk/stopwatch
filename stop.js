@@ -1,13 +1,14 @@
 var T = (function(){
+	'use strict';
 	function repeatRender(){
-		clearInterval(T.renderEvery10)
-		T.renderEvery10 = setInterval(T.render, 10);
+		
 	}
 
 	function startTimer(timestamp) {
 		var start = timestamp || new Date().getTime();
 		T.start = start;
-		T.repeatRender();
+		clearInterval(T.renderEvery10)
+		T.renderEvery10 = setInterval(T.render, 10);
 		$('#start, #continue').hide();
 		$('#pause, #reset').show();
 		return T.start;
@@ -15,20 +16,17 @@ var T = (function(){
 
 
 	function addLeadingZeros(string, length){
+		var string = string.toString();
 		return string.length < length ? T.addLeadingZeros('0' + string, length) : string;
 	}
 
 	function render() {
-		var timeString = (new Date().getTime() - T.start).toString();
-		var centiseconds = timeString.slice(-3,-1);
-		var seconds = timeString.slice(-7,-3) || '00';
-		var minutes = Math.floor(+seconds/60);
-		seconds = +seconds - 60 * (minutes);
-		seconds = T.addLeadingZeros(seconds.toString(),2);
-		minutes = T.addLeadingZeros(minutes.toString(),2);
-		centiseconds = T.addLeadingZeros(centiseconds,2);
-		var final = minutes + ':' + seconds + ':' + centiseconds;
-		$('#counter').text(final);
+		var timeDiff= new Date().getTime() - T.start;
+		console.log(timeDiff);
+		var minutes = addLeadingZeros(Math.floor(timeDiff / (60 * 1000)), 2);
+		var seconds = addLeadingZeros(Math.floor((timeDiff - minutes * 60 * 1000) / 1000), 2);
+		var centiseconds = addLeadingZeros(Math.floor((timeDiff - minutes * 60 * 1000 - seconds * 1000) / 10));
+		$('#counter').text(minutes + ':' + seconds + ':' + centiseconds);
 	}
 
 	function reset() {
