@@ -40,19 +40,21 @@ test('clicking reset calls reset', function(){
 	equal($('#reset').attr('onClick'), 'T.reset()', 'we invoked reset');
 })
 
-asyncTest( 'repeatRender updates about ten seconds in ten seconds', function(){
+test( 'the timer updates about ten seconds in ten seconds', function( assert ){
 	T.reset();
-	T.repeatRender();
+	T.startTimer();
+	var done = assert.async();
 	setTimeout(function(){
 		equal($('#counter').text().slice(6,7), '3');
-		QUnit.start();
+		done();
 	}, 330)
 })
 
-asyncTest( 'pause stops timer', function(){
+test( 'pause stops timer', function( assert ){
 	var useful;
 	T.reset();
 	T.repeatRender();
+	var done = assert.async();
 	setTimeout(function(){
 		T.pauseTimer();
 		useful = $('#counter').text();
@@ -60,13 +62,15 @@ asyncTest( 'pause stops timer', function(){
 	setTimeout(function(){
 		equal(useful, $('#counter').text());
 		QUnit.start();
+		done();
 	}, 600)
 })
 
-asyncTest('continue resumes counting', function(){
+test('continue resumes counting', function( assert ){
 	var stopTime;
 	T.reset();
 	T.startTimer();
+	var done = assert.async();
 	setTimeout(function(){
 		T.pauseTimer();
 		stopTime = $('#counter').text();
@@ -74,8 +78,11 @@ asyncTest('continue resumes counting', function(){
 
 	setTimeout(T.continueTimer, 200);
 	setTimeout(function(){
-		equal($('#counter').text().slice(0,7),stopTime.slice(0,6) + (+stopTime.slice(7,7) + 1));
+		var roundedTime = $('#counter').text().slice(6);
+		roundedTime = roundedTime === '20' || '19' || '18' ? '20' : roundedTime;
+		equal(roundedTime,'20');
 		QUnit.start();
+		done();
 	}, 300)
 })
 
