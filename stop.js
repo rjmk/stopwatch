@@ -25,7 +25,7 @@ var T = (function(){
 		console.log(timeDiff);
 		var minutes = addLeadingZeros(Math.floor(timeDiff / (60 * 1000)), 2);
 		var seconds = addLeadingZeros(Math.floor((timeDiff - minutes * 60 * 1000) / 1000), 2);
-		var centiseconds = addLeadingZeros(Math.floor((timeDiff - minutes * 60 * 1000 - seconds * 1000) / 10));
+		var centiseconds = addLeadingZeros(Math.floor((timeDiff - minutes * 60 * 1000 - seconds * 1000) / 10),2);
 		$('#counter').text(minutes + ':' + seconds + ':' + centiseconds);
 	}
 
