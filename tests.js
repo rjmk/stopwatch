@@ -61,7 +61,6 @@ test( 'pause stops timer', function( assert ){
 	}, 300)
 	setTimeout(function(){
 		equal(useful, $('#counter').text());
-		QUnit.start();
 		done();
 	}, 600)
 })
